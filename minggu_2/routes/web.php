@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VoterController;
+use App\Http\Controllers\SubjectController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,12 +15,20 @@ use App\Http\Controllers\VoterController;
 |
 */
 
- Route::get('/about', function () {
-    return view ('about');
- });
+//  Route::get('/about', function () {
+//     return view ('about');
+//  });
 
-Route::get('/', function () {
-    return view ('servis');
- });
+// Route::get('/', function () {
+//     return view ('servis');
+//  });
 
 Route::get('/voter', [VoterController::class, 'viewVoter']);
+
+Route::get('/Ss', [SubjectController::class, 'studentsubject']);
+Route::get('/Ts', [SubjectController::class, 'teachersubject']);
+Route::get('/As', [SubjectController::class, 'adminsubject']);
+
+Route::get('/Su', [UserController::class, 'studentuser']);
+Route::get('/Tu', [UserController::class, 'teacheruser']);
+Route::get('/Au', [UserController::class, 'adminuser']);
