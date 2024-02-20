@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\VoterController;
 use App\Http\Controllers\TaskController; 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,13 +15,14 @@ use App\Http\Controllers\TaskController;
 |
 */
 
- Route::get('/about', function () {
-    return view ('about');
- });
-
 Route::get('/', function () {
-    return view ('servis');
- });
+    return view('welcome');
+});
 
-Route::get('/voter', [VoterController::class, 'viewVoter']);
+Route::get('/voters', [VoterController::class, 'viewVoter']);
+
 Route::get('/task', [TaskController::class, 'index']);
+
+Route::get('/task/create', [TaskController::class, 'create']);
+
+Route::post('/task/store', [TaskController::class, 'store']);
