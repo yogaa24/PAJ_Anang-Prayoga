@@ -38,6 +38,11 @@ class TaskController extends Controller
         Task::where('id', $request['id'])->update($validatedData);
         return redirect('/task');
     }
+
+    public function delete(Task $task){
+        $task->delete();
+        return redirect('/task');
+    }    
     
     
 }
